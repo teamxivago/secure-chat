@@ -1,0 +1,25 @@
+{
+  "name": "veil",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.28.0",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "db:migrate": "pnpm --filter @veil/database migrate",
+    "db:generate": "pnpm --filter @veil/database generate",
+    "db:seed": "pnpm --filter @veil/database seed",
+    "secrets": "tsx scripts/generate-secrets.ts"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.1",
+    "@veil/crypto": "workspace:*",
+    "postgres": "3.4.9",
+    "socket.io-client": "4.8.4",
+    "tsx": "4.20.6",
+    "turbo": "2.11.10",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,4 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Android 14+: be notified when the user takes a screenshot (FLAG_SECURE already blocks the pixels). -->
+    <uses-permission android:name="android.permission.DETECT_SCREEN_CAPTURE" />
+</manifest>

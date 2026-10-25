@@ -1,0 +1,13 @@
+{
+  "name": "@veil/secure-screen",
+  "version": "1.0.0",
+  "description": "Blocks screenshots/screen recording and detects capture attempts (Android FLAG_SECURE, iOS secure layer).",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "files": ["android/src", "android/build.gradle", "ios/Sources", "Package.swift", "VeilSecureScreen.podspec", "src"],
+  "capacitor": {
+    "ios": { "src": "ios" },
+    "android": { "src": "android" }
+  },
+  "peerDependencies": { "@capacitor/core": "^6.0.0" }
+}

@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@source "./";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #ffffff;
+  --surface: #f5f6f8;
+  --surface-2: #eceef2;
+  --elevated: #ffffff;
+  --border: rgba(15, 15, 26, 0.08);
+  --text: #0f0f1a;
+  --muted: #6b7083;
+  --subtle: #9aa0b2;
+  --accent: #00a88e;
+  --accent-strong: #008f79;
+  --accent-soft: rgba(0, 168, 142, 0.12);
+  --accent-contrast: #ffffff;
+  --bubble-out: #00a88e;
+  --bubble-out-text: #ffffff;
+  --bubble-in: #f1f2f5;
+  --bubble-in-text: #0f0f1a;
+  --danger: #e5484d;
+  --warning: #f5a524;
+  --online: #22c55e;
+  --chat-bg: #eef1f4;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 40px rgba(15, 15, 26, 0.16);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0f0f1a;
+  --surface: #1a1a2e;
+  --surface-2: #22223a;
+  --elevated: #252540;
+  --border: rgba(255, 255, 255, 0.07);
+  --text: #f2f3f7;
+  --muted: #9aa0b4;
+  --subtle: #6b7088;
+  --accent: #00a88e;
+  --accent-strong: #19c2a6;
+  --accent-soft: rgba(0, 168, 142, 0.18);
+  --bubble-out: #00957e;
+  --bubble-in: #252540;
+  --bubble-in-text: #f2f3f7;
+  --chat-bg: #0b0b14;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-elevated: var(--elevated);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-bubble-out: var(--bubble-out);
+  --color-bubble-out-text: var(--bubble-out-text);
+  --color-bubble-in: var(--bubble-in);
+  --color-bubble-in-text: var(--bubble-in-text);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-online: var(--online);
+  --color-chat: var(--chat-bg);
+  --shadow-soft: var(--shadow);
+  --shadow-float: var(--shadow-lg);
+  --font-sans: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  --radius-bubble: 12px;
+  --radius-modal: 20px;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+body {
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-2) transparent;
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.safe-x {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.chat-wallpaper {
+  background-color: var(--chat-bg);
+  background-image: radial-gradient(circle at 20% 10%, var(--accent-soft) 0, transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(42, 171, 238, 0.08) 0, transparent 45%);
+}
+
+.bubble-tail-out::after,
+.bubble-tail-in::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 12px;
+  height: 14px;
+  background: inherit;
+}
+.bubble-tail-out::after {
+  right: -6px;
+  clip-path: path("M0 0 C 1 8 4 12 12 14 L 0 14 Z");
+}
+.bubble-tail-in::after {
+  left: -6px;
+  clip-path: path("M12 0 C 11 8 8 12 0 14 L 12 14 Z");
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.secure-blur {
+  filter: blur(28px) saturate(1.2);
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-8px); }
+  40%, 60% { transform: translateX(8px); }
+}
+.animate-shake {
+  animation: shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { opacity: 0.25; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-2px); }
+}

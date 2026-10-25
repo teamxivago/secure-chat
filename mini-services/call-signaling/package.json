@@ -1,0 +1,16 @@
+{
+  "name": "@veil/call-signaling",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "tsx watch src/index.ts", "start": "tsx src/index.ts", "typecheck": "tsc --noEmit" },
+  "dependencies": {
+    "@socket.io/redis-adapter": "8.3.0",
+    "@veil/database": "workspace:*",
+    "@veil/shared": "workspace:*",
+    "ioredis": "5.11.1",
+    "socket.io": "4.8.4",
+    "zod": "4.6.7"
+  },
+  "devDependencies": { "tsx": "4.20.6", "typescript": "5.9.3", "@types/node": "22.19.1" }
+}

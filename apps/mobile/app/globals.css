@@ -1,0 +1,14 @@
+@import "@fontsource-variable/inter";
+@import "@veil/ui/styles.css";
+
+html,
+body {
+  font-family: "Inter Variable", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Roboto", "Hiragino Sans", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+textarea,
+input {
+  user-select: text;
+  -webkit-user-select: text;
+}

@@ -1,0 +1,20 @@
+# Local infrastructure for Veil. App services run with `./scripts/dev-all.sh`.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: veil, POSTGRES_PASSWORD: veil, POSTGRES_DB: veil }
+    ports: ["5432:5432"]
+    volumes: [pg:/var/lib/postgresql/data]
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+  meilisearch:
+    image: getmeili/meilisearch:v1.11
+    environment: { MEILI_MASTER_KEY: dev-master-key, MEILI_NO_ANALYTICS: "true" }
+    ports: ["7700:7700"]
+  coturn:
+    image: coturn/coturn:4.6
+    network_mode: host
+    command: ["-n", "--use-auth-secret", "--static-auth-secret=dev-turn-secret", "--realm=veil.local", "--listening-port=3478", "--no-cli", "--fingerprint"]
+volumes:
+  pg: {}
